@@ -42,7 +42,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarRail,
-} from "@/src/components/ui/sidebar";
+} from "@/components/ui/sidebar";
 
 import {
   DropdownMenu,
@@ -286,13 +286,15 @@ function NavItem({ item, pathname }: { item: MenuItem; pathname: string }) {
     pathname.startsWith(`${item.href}/`) ||
     Boolean(item.items?.some((subItem) => isActive(pathname, subItem.href)));
 
+  const isOpen = open || activeParent;
+
   // Ouvre automatiquement le menu si une
   // de ses pages est actuellement active.
-  React.useEffect(() => {
-    if (activeParent) {
-      setOpen(true);
-    }
-  }, [activeParent]);
+  // React.useEffect(() => {
+  //   if (activeParent) {
+  //     setOpen(true);
+  //   }
+  // }, [activeParent]);
 
   // ====================================================
   // ITEM SIMPLE
@@ -332,7 +334,7 @@ function NavItem({ item, pathname }: { item: MenuItem; pathname: string }) {
 
         <ChevronDown
           className={`ml-auto size-4 transition-transform duration-200 ${
-            open ? "rotate-180" : ""
+            isOpen ? "rotate-180" : ""
           }`}
         />
       </SidebarMenuButton>

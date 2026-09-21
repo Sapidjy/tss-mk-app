@@ -1,7 +1,10 @@
-import React from 'react'
+import { MembersList } from "@/components/members/members-list";
+import { members } from "@/data/members";
 
-export default function MembersPage() {
+export default async function MembersPage() {
   return (
-    <div>MembersPage</div>
-  )
+    <main className="container mx-auto py-6">
+      <MembersList members={members} />
+    </main>
+  );
 }
