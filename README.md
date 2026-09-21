@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# STRUCTURE DES DONNEES
 
-## Getting Started
+USER
+  id
+  username
+  password
+  role
+  status
+  createdAt
 
-First, run the development server:
+Member
+  id
+  userId
+  memberNumber
+  firstName
+  lastName
+  phone
+  initialDeposit
+  createdAt
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Loan
+  id
+  memberId
+  type
+  amount
+  interestRate
+  interestAmount
+  totalAmount
+  startDate
+  dueDate
+  status
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Payment
+  id
+  loanId
+  amount
+  capitalAmount
+  InterestAmount
+  paymentDate
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Transaction
+  id
+  memberId
+  type
+  amount
+  reference
+  description
+  createdAt
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+TRANSACTION_TYPE
+  INITIAL_DEPOSIT
+  ACTION
+  DEPOSIT
+  WITHDRAWAL
+  LOAN_DISBURSEMENT
+  LOAN_PAYMENT
+  INTEREST
+  DISTRIBUTION
 
-## Learn More
+InterestDistribution
+  id
+  memberId
+  period
+  amount
+  calculationBasis
 
-To learn more about Next.js, take a look at the following resources:
+# AUTHENTIFICATION/GESTION MEMBRE
+  Auth
+  User
+  Member
+  Roles
+  Database 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# TRANSACTIONS/ACTIONS/DEPOTS/RETRAITS
+  Action
+  Depot
+  Balance
+  Historique
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# PRET
+  WORKFLOW (demande de pret)
+  Validation admin
+  Calcul 10%/15%
+  Limite 2x Actions
+  verification 1 pret actif
 
-## Deploy on Vercel
+# REMBOURSEMENT
+  Paiement
+  Capital restant
+  Interet restant
+  Echeance
+  Overdue 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# REPARTITION DES INTERETS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# DASHBOARD
+  DASHBOARD_MEMBRE
+  DASHBOARD_ADMIN
+  STATISTIQUES
+  MENU ADMIN
+
+# SECURITE
+  Audit logs
+  Permissions
+  Validation
+  Protection API
+  Historique immutable
